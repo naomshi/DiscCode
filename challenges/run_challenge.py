@@ -10,7 +10,7 @@ def main():
         if solution_solve != attempt_solve:
             print(f"Failed: Test case {case} failed with result {attempt_solve}.")
             return
-    
+
     print("Tests all completed successfully! Congratulations.")
 
 
