@@ -1,2 +1,2 @@
-def solve(num1: int, num2: int):
-    return num1 + num2
+def solve(nums: tuple[int, int]):
+    return nums[0] + nums[1]

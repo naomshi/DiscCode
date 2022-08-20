@@ -1,2 +1,2 @@
 def solve(nums: tuple[int, int]):
-    pass
+    return nums[0] - nums[1]

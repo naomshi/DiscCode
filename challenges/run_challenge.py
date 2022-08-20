@@ -1,21 +1,17 @@
 import solution
 import attempt
-import test_cases
+from test_cases import cases
 
 def main():
-    solution_results = []
-    attempt_results = []
+    for case in cases:
+        solution_solve = solution.solve(case)
+        attempt_solve = attempt.solve(case)
 
-    for case in test_cases:
-        solution_results.append(solution.solve(case))
-        attempt_results.apend(attempt.solve(case))
-
-    for solution_result, attempt_result in zip(solution_results, attempt_results):
-        if solution_result != attempt_result:
-            print("fail")
+        if solution_solve != attempt_solve:
+            print(f"Failed: Test case {case} failed with result {attempt_solve}.")
             return
     
-    print("win")
+    print("Tests all completed successfully! Congratulations.")
 
 
 if __name__ == "__main__":
