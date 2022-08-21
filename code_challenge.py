@@ -71,10 +71,13 @@ class Challenge:
 
             client = docker.from_env()
 
-            chall_result = client.containers.run(
-                "challenge-python",
-                volumes=volumes
-            ).decode("utf-8").strip()
+            try:
+                chall_result = client.containers.run(
+                    "challenge-python",
+                    volumes=volumes
+                ).decode("utf-8").strip()
+            except docker.errors.ContainerError:
+                return Result(False, "Error when executing attempt.")
 
             return Result("successfully" in chall_result, chall_result)
 
